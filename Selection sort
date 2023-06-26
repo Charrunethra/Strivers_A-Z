@@ -1,0 +1,32 @@
+//Main Algo of selection sort
+Algorithm: 
+Select minimums and swap
+Code:(Java)
+//Selection Sort
+import java.util.*;
+public class Main
+{
+    void selectionSort(int[] arr, int n){
+        for(int i=0;i<n-1;i++){
+            int mini = i;
+            for(int j=i+1;j<n;j++){
+                if(arr[j]<arr[mini])
+                   mini = j;
+            }
+            //swap
+            int temp = arr[i];
+            arr[i] = arr[mini];
+            arr[mini] = temp;
+        }
+    }
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int[] arr = {13, 46, 24, 52, 20, 9};
+		int n = arr.length;
+		Main m = new Main();
+		m.selectionSort(arr,n);
+		for(int i=0;i<n;i++){
+		    System.out.print(arr[i]+" ");
+		}
+	}
+}
