@@ -30,3 +30,5 @@ public class Main
 		}
 	}
 }
+
+//Time complexity: O(n^2)
