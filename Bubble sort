@@ -1,0 +1,55 @@
+Bubble sort
+Algo : 
+Push the max to the last by adjacent swaps
+Code:(Java)
+//Selection Sort -> select mins and swap
+//Bubble Sort -> push max to the last by adj swaps
+import java.util.*;
+public class Main
+{
+    void selectionSort(int[] arr, int n){
+        for(int i=0;i<n-1;i++){
+            int mini = i;
+            for(int j=i+1;j<n;j++){
+                if(arr[j]<arr[mini])
+                   mini = j;
+            }
+            //swap
+            int temp = arr[i];
+            arr[i] = arr[mini];
+            arr[mini] = temp;
+        }
+    }
+        void bubbleSort(int[] arr, int n){
+            for(int i=n-1;i>=1;i--){
+                int didswap = 0; //for asc order bestcase is O(N)
+                for(int j=0;j<i;j++){
+                    if(arr[j]>arr[j+1]){
+                        int temp = arr[j];
+                        arr[j] = arr[j+1];
+                        arr[j+1] = temp;
+                        didswap = 1;
+                    }
+                }
+                if(didswap == 0){
+                    break;
+                }
+            }
+        }
+    
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+	//	int[] arr = {13, 46, 24, 52, 20, 9}; //O(n^2) worst and avg case
+	    int[] arr = {1,2,3,4,5}; //O(n) best case
+		int n = arr.length;
+		Main m = new Main();
+		m.bubbleSort(arr,n);
+		for(int i=0;i<n;i++){
+		    System.out.print(arr[i]+" ");
+		}
+	}
+}
+
+Time complexity:
+worst case and avg case -> O(N^2)
+best case -> O(N) [by introducing didswap variable in the code]
